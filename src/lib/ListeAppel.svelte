@@ -127,8 +127,8 @@
             <div class="nombre">{orange1} ×</div>
             <div class="stickman"><Stickman color="orange" size={32} /></div>
             <div class="description">
-                Personnes qui ont abandonné leur place en file d'attente et qui
-                étaient devant vous
+                Personne qui a abandonné sa place en file d'attente et qui
+                était devant vous
             </div>
         </div>
         <div>
@@ -159,8 +159,8 @@
             <div class="nombre">? ×</div>
             <div class="stickman"><Stickman color="orange" size={32} /></div>
             <div class="description">
-                personnes qui ont abandonné leur place en file d'attente et qui
-                étaient derrière vous
+                personne qui a abandonné sa place en file d'attente et qui
+                était derrière vous
             </div>
         </div>
         <div>

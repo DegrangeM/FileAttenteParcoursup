@@ -1,14 +1,15 @@
 <script>
+  import Inputs from "./lib/Inputs.svelte";
   import MultiStickman from "./lib/MultiStickman.svelte";
   import Stickman from "./lib/Stickman.svelte";
-
-  let places = 20;
-  let position_liste_attente = 10;
-  let candidats_liste_attente = 21;
-  let position_liste_appel = 51;
-  let position_liste_appel_dernier_candidat = 30;
-  let position_liste_appel_dernier_candidat_annee_precedente = 15;
-
+  import {
+    places,
+    position_liste_attente,
+    candidats_liste_attente,
+    position_liste_appel,
+    position_liste_appel_dernier_candidat,
+    position_liste_appel_dernier_candidat_annee_precedente,
+  } from "./stores.js";
   // 10R 5V 15J 10B1 10O1 1R 10B2 10O2
 
   let rougevertjaune = 0,
@@ -23,17 +24,17 @@
 
   $: {
     // On déclare tout dans une même variable pour éviter que Svelte change l'ordre
-    rougevertjaune = position_liste_appel_dernier_candidat;
-    vertjaune = places;
+    rougevertjaune = $position_liste_appel_dernier_candidat;
+    vertjaune = $places;
     rouge = rougevertjaune - vertjaune;
     // $: vert = 0; // inconnu
     // $: jaune = 0; // inconnu
-    bleu = candidats_liste_attente;
+    bleu = $candidats_liste_attente;
     rose = 1;
-    bleu1 = position_liste_attente - rose; // devant vous
+    bleu1 = $position_liste_attente - rose; // devant vous
     bleu2 = bleu - bleu1 - rose; // derrière vous
     // $: orange = 0; // inconnu
-    orange1 = position_liste_appel - rougevertjaune - bleu1;
+    orange1 = $position_liste_appel - rougevertjaune - bleu1;
     // $: orange2 = 0; // inconnu
 
     zone1 = [
@@ -54,34 +55,7 @@
 </script>
 
 <main>
-  Nombre de places dans la formation : <input
-    type="number"
-    bind:value={places}
-    min="0"
-  /><br />
-
-  Votre position dans la liste d'attente :
-  <input type="number" bind:value={position_liste_attente} min="0" /><br />
-  Nombre total de candidats dans la liste d'attente :
-  <input type="number" bind:value={candidats_liste_attente} min="0" /><br />
-
-  Votre position dans la liste d'appel de la formation :
-  <input type="number" bind:value={position_liste_appel} min="0" /> <br />
-  Position dans la liste d'appel du dernier candidat qui a reçu une proposition d’admission
-  :
-  <input
-    type="number"
-    bind:value={position_liste_appel_dernier_candidat}
-    min="0"
-  /><br />
-
-  Position dans la liste d'appel du dernier candidat qui a reçu une proposition
-  d’admission en 2022 :
-  <input
-    type="number"
-    bind:value={position_liste_appel_dernier_candidat_annee_precedente}
-    min="0"
-  /><br />
+<Inputs />
 
   <Stickman color="red" /> Personne ayant reçu une proposition d'admission mais l'ayant
   refusé <br />
@@ -99,7 +73,7 @@
   <Stickman color="green" />
   <Stickman color="red" />
 
-  Il y a {position_liste_appel_dernier_candidat} personnes ayant reçu une proposition
+  Il y a {$position_liste_appel_dernier_candidat} personnes ayant reçu une proposition
   d'admission. Certaines de ces personnes l'ont <Stickman
     color="green"
     size={32}

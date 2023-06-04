@@ -80,8 +80,8 @@
         />
       </div>
       <div>
-        {orange1} × <Stickman color="orange" /> Personnes qui a abandonné sa place
-        en file d'attente et qui était devant vous<br />
+        {orange1} × <Stickman color="orange" /> Personnes qui ont abandonné sa place
+        en file d'attente et qui étaient devant vous<br />
       </div>
       <div>
         {#each zone2 as p}
@@ -99,12 +99,12 @@
     </div>
     <div class="zone3">
       <div>
-        {bleu2} × <Stickman color="blue" /> Personne en liste d'attente derrière
+        {bleu2} × <Stickman color="blue" /> personne en liste d'attente derrière
         vous<br /><br />
       </div>
       <div>
-        ? X <Stickman color="orange" /> Personnes qui a abandonné sa place en file
-        d'attente et qui était derrière vous<br />
+        ? × <Stickman color="orange" /> personnes qui ont abandonné sa place en file
+        d'attente et qui étaient derrière vous<br />
       </div>
       <div>
         {#each zone3 as p}

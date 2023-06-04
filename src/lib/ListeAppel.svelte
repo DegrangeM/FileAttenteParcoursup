@@ -59,24 +59,24 @@
 <div id="grille">
     <div class="zone1">
         <div class="decompte">
-            <div>{rouge} × </div>
-            <div><Stickman color="red" size={32} /></div>
-            <div>
+            <div class="nombre">{rouge} × </div>
+            <div class="stickman"><Stickman color="red" size={32} /></div>
+            <div class="description">
                 Personne ayant reçu une proposition d'admission mais l'ayant
                 refusé<br />
             </div>
         </div>
         <div class="decompte">
-            <div>
+            <div class="nombre">
                 {vertjaune} × 
             </div>
-            <div>
+            <div class="stickman">
                 <MultiStickman
                     colors={["green", "yellow"]}
                     size={32}
                 />
             </div>
-            <div>
+            <div class="description">
                 Personne ayant reçu une proposition d'admission et l'ayant soit
                 accepté, soit pas encore accepté ou refusé
             </div>
@@ -156,11 +156,20 @@
         display: flex;
         flex-direction: column;
         height: 100%;
+        padding: 0px 5px;
     }
-    #grille > div > div {
+    #grille > div > .decompte {
         display: flex;
         align-items: center;
         flex: 1;
+    }
+    #grille > div > .decompte > .nombre {
+        min-width: 40px;
+        text-align: center;
+    }
+    #grille > div > .decompte > .stickman {
+        min-width: 25px;
+        text-align: center;
     }
     #grille > div > div:last-of-type {
         flex: none;

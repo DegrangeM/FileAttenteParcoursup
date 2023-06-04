@@ -6,7 +6,7 @@
 
 <div class="main">
     {#each colors as color, i}
-    <div style="height:{size}px;clip-path: polygon(0% {Math.round(i/colors.length*100)}%, 100% {Math.round(i/colors.length*100)}%, 100% {Math.round((i+1)/colors.length*100)}%, 0% {Math.round((i+1)/colors.length*100)}%);"><Stickman {color} /></div>
+    <div style="height:{size}px;clip-path: polygon(0% {Math.round(i/colors.length*100)}%, 100% {Math.round(i/colors.length*100)}%, 100% {Math.round((i+1)/colors.length*100)}%, 0% {Math.round((i+1)/colors.length*100)}%);"><Stickman {color} {size} /></div>
     {/each}
     <div style="visibility: hidden;position: static;">
         <Stickman {size} />

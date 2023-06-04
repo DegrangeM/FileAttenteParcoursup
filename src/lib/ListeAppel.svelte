@@ -56,11 +56,11 @@
 <div id="grille">
     <div class="zone1">
       <div>
-        {rouge} × <Stickman color="red" /> Personne ayant reçu une proposition d'admission
+        {rouge} × <Stickman color="red" size={32} /> Personne ayant reçu une proposition d'admission
         mais l'ayant refusé<br />
       </div>
       <div>
-        {vertjaune} × <MultiStickman colors={["green", "yellow"]} /> Personne ayant
+        {vertjaune} × <MultiStickman colors={["green", "yellow"]} size={32} /> Personne ayant
         reçu une proposition d'admission et l'ayant soit accepté, soit pas encore
         accepté ou refusé
       </div>
@@ -76,11 +76,11 @@
     </div>
     <div class="zone2">
       <div>
-        {bleu1} × <Stickman color="blue" /> Personne en liste d'attente devant vous<br
+        {bleu1} × <Stickman color="blue" size={32} /> Personne en liste d'attente devant vous<br
         />
       </div>
       <div>
-        {orange1} × <Stickman color="orange" /> Personnes qui ont abandonné sa place
+        {orange1} × <Stickman color="orange" size={32} /> Personnes qui ont abandonné sa place
         en file d'attente et qui étaient devant vous<br />
       </div>
       <div>
@@ -91,7 +91,7 @@
     </div>
     <div style="flex: none;">
       <div>
-        {rose} × <Stickman color="pink" /> Vous<br />
+        {rose} × <Stickman color="pink" size={32} /> Vous<br />
       </div>
       <div>
         <div><Stickman color="pink" /></div>
@@ -99,11 +99,11 @@
     </div>
     <div class="zone3">
       <div>
-        {bleu2} × <Stickman color="blue" /> personne en liste d'attente derrière
+        {bleu2} × <Stickman color="blue" size={32} /> personne en liste d'attente derrière
         vous<br /><br />
       </div>
       <div>
-        ? × <Stickman color="orange" /> personnes qui ont abandonné sa place en file
+        ? × <Stickman color="orange" size={32} /> personnes qui ont abandonné sa place en file
         d'attente et qui étaient derrière vous<br />
       </div>
       <div>

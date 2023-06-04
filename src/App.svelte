@@ -1,8 +1,6 @@
 <script>
   import MultiStickman from "./lib/MultiStickman.svelte";
   import Stickman from "./lib/Stickman.svelte";
-  // import viteLogo from '/vite.svg'
-  // import Counter from './lib/Counter.svelte'
 
   let places = 20;
   let position_liste_attente = 10;

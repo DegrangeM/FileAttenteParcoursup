@@ -1,5 +1,5 @@
 <script>
-    import Stickman from "./stickman.svelte";
+    import Stickman from "./Stickman.svelte";
 </script>
 
 <div id="legende">

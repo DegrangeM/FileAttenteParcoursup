@@ -40,6 +40,7 @@
     zone1 = [
       ...new Array(rouge).fill("red"),
       ...new Array(vertjaune).fill("vertjaune"),
+      '[...]'
     ];
     zone1.sort(() => Math.random() - 0.5);
     zone2 = [

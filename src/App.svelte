@@ -17,14 +17,18 @@
 <main>
   <Inputs />
 
+  <br />
+  
   <Legende />
-
-  Il y a {$position_liste_appel_dernier_candidat} personnes ayant reçu une proposition
+  
+  <br />
+  
+  <!--Il y a {$position_liste_appel_dernier_candidat} personnes ayant reçu une proposition
   d'admission. Certaines de ces personnes l'ont <Stickman
     color="green"
     size={32}
   /> acceptés et d'autres l'ont <Stickman color="red" size={32} /> refusées.
-  <br />
+  <br />-->
 
   <ListeAppel />
 

@@ -33,7 +33,7 @@
         bleu1 = $position_liste_attente - rose; // devant vous
         bleu2 = bleu - bleu1 - rose; // derrière vous
         // $: orange = 0; // inconnu
-        orange1 = $position_liste_appel - rougevertjaune - bleu1;
+        orange1 = $position_liste_appel - rougevertjaune - bleu1 - rose;
         // $: orange2 = 0; // inconnu
         zone1 = [
             ...new Array(

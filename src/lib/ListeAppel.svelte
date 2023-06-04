@@ -35,43 +35,49 @@
         // $: orange = 0; // inconnu
         orange1 = $position_liste_appel - rougevertjaune - bleu1 - rose;
         // $: orange2 = 0; // inconnu
-        zone1 = [
-            ...new Array(
-                rouge <= 10 ? rouge : 10 + Math.round(Math.log2(rouge - 10 + 1))
-            ).fill("red"),
-            ...new Array(
-                vertjaune <= 10
-                    ? vertjaune
-                    : 10 + Math.round(Math.log2(vertjaune - 10 + 1))
-            ).fill("vertjaune"),
-        ];
-        zone1.sort(() => Math.random() - 0.5);
-        if (rouge > 10 || vertjaune > 10) {
-            zone1.splice(Math.round(zone1.length / 2), 0, "[...]");
+        if(rouge>=0 && vertjaune>=0 && bleu1>=0 && orange1>=0 && rose>=0 && bleu2>=0) {
+            zone1 = [
+                ...new Array(
+                    rouge <= 8 ? rouge : 8 + Math.round(Math.log2(rouge - 8 + 1))
+                ).fill("red"),
+                ...new Array(
+                    vertjaune <= 8
+                        ? vertjaune
+                        : 8 + Math.round(Math.log2(vertjaune - 8 + 1))
+                ).fill("vertjaune"),
+            ];
+            zone1.sort(() => Math.random() - 0.5);
+            if (rouge > 8 || vertjaune > 8) {
+                zone1.splice(Math.round(zone1.length / 2), 0, "[...]");
+            }
+            console.log(zone1);
+            zone2 = [
+                ...new Array(
+                    bleu1 <= 8 ? bleu1 : 8 + Math.round(Math.log2(bleu1 - 8 + 1))
+                ).fill("blue"),
+                ...new Array(
+                    orange1 <= 8
+                        ? orange1
+                        : 8 + Math.round(Math.log2(orange1 - 8 + 1))
+                ).fill("orange"),
+            ];
+            zone2.sort(() => Math.random() - 0.5);
+            if (bleu1 > 8 || orange1 > 8) {
+                zone2.splice(Math.round(zone2.length / 2), 0, "[...]");
+            }
+            zone3 = [
+                ...new Array(
+                    bleu2 <= 8 ? bleu2 : 8 + Math.round(Math.log2(bleu2 - 8 + 1))
+                ).fill("blue"),
+                ...new Array(3).fill("orange"),
+            ];
+            zone3.sort(() => Math.random() - 0.5);
+            zone3.splice(Math.round(zone3.length / 2), 0, "[...]"); // On ne connait pas le orange, on met donc toujours un [...]
+        } else {
+            zone1 = ["[...]"];
+            zone2 = ["[...]"];
+            zone3 = ["[...]"];
         }
-        console.log(zone1);
-        zone2 = [
-            ...new Array(
-                bleu1 <= 10 ? bleu1 : 10 + Math.round(Math.log2(bleu1 - 10 + 1))
-            ).fill("blue"),
-            ...new Array(
-                orange1 <= 10
-                    ? orange1
-                    : 10 + Math.round(Math.log2(orange1 - 10 + 1))
-            ).fill("orange"),
-        ];
-        zone2.sort(() => Math.random() - 0.5);
-        if (bleu1 > 10 || orange1 > 10) {
-            zone2.splice(Math.round(zone2.length / 2), 0, "[...]");
-        }
-        zone3 = [
-            ...new Array(
-                bleu2 <= 10 ? bleu2 : 10 + Math.round(Math.log2(bleu2 - 10 + 1))
-            ).fill("blue"),
-            ...new Array(3).fill("orange"),
-        ];
-        zone3.sort(() => Math.random() - 0.5);
-        zone3.splice(Math.round(zone3.length / 2), 0, "[...]"); // On ne connait pas le orange, on met donc toujours un [...]
     }
 </script>
 
@@ -121,7 +127,7 @@
             <div class="nombre">{orange1} ×</div>
             <div class="stickman"><Stickman color="orange" size={32} /></div>
             <div class="description">
-                Personnes qui ont abandonné sa place en file d'attente et qui
+                Personnes qui ont abandonné leur place en file d'attente et qui
                 étaient devant vous
             </div>
         </div>
@@ -153,7 +159,7 @@
             <div class="nombre">? ×</div>
             <div class="stickman"><Stickman color="orange" size={32} /></div>
             <div class="description">
-                personnes qui ont abandonné sa place en file d'attente et qui
+                personnes qui ont abandonné leur place en file d'attente et qui
                 étaient derrière vous
             </div>
         </div>

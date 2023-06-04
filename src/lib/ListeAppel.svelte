@@ -56,11 +56,11 @@
 <div id="grille">
     <div class="zone1">
       <div>
-        {rouge} X <Stickman color="red" /> Personne ayant reçu une proposition d'admission
+        {rouge} × <Stickman color="red" /> Personne ayant reçu une proposition d'admission
         mais l'ayant refusé<br />
       </div>
       <div>
-        {vertjaune} X <MultiStickman colors={["green", "yellow"]} /> Personne ayant
+        {vertjaune} × <MultiStickman colors={["green", "yellow"]} /> Personne ayant
         reçu une proposition d'admission et l'ayant soit accepté, soit pas encore
         accepté ou refusé
       </div>
@@ -69,37 +69,37 @@
           {#if p == "vertjaune"}
             <MultiStickman colors={["green", "yellow"]} />
           {:else}
-            <Stickman color={p} />
+            <div><Stickman color={p} /></div>
           {/if}
         {/each}
       </div>
     </div>
     <div class="zone2">
       <div>
-        {bleu1} X <Stickman color="blue" /> Personne en liste d'attente devant vous<br
+        {bleu1} × <Stickman color="blue" /> Personne en liste d'attente devant vous<br
         />
       </div>
       <div>
-        {orange1} X <Stickman color="orange" /> Personnes qui a abandonné sa place
+        {orange1} × <Stickman color="orange" /> Personnes qui a abandonné sa place
         en file d'attente et qui était devant vous<br />
       </div>
       <div>
         {#each zone2 as p}
-          <Stickman color={p} />
+        <div><Stickman color={p} /></div>
         {/each}
       </div>
     </div>
     <div style="flex: none;">
       <div>
-        {rose} X <Stickman color="pink" /> Vous<br />
+        {rose} × <Stickman color="pink" /> Vous<br />
       </div>
       <div>
-        <Stickman color="pink" />
+        <div><Stickman color="pink" /></div>
       </div>
     </div>
     <div class="zone3">
       <div>
-        {bleu2} X <Stickman color="blue" /> Personne en liste d'attente derrière
+        {bleu2} × <Stickman color="blue" /> Personne en liste d'attente derrière
         vous<br /><br />
       </div>
       <div>
@@ -108,7 +108,7 @@
       </div>
       <div>
         {#each zone3 as p}
-          <Stickman color={p} />
+          <div><Stickman color={p} /></div>
         {/each}
       </div>
     </div>
@@ -118,13 +118,21 @@
     #grille {
       display: flex;
       align-items: center;
+      height: 200px;
     }
     #grille > div {
       flex: 1;
       display: flex;
+      flex-direction: column;
+      height: 100%;
     }
     #grille > div > div {
       display: flex;
       align-items: center;
+      flex: 1;
+      justify-content: space-around;
+    }
+    #grille > div > div:last-of-type {
+      flex: none;
     }
   </style>

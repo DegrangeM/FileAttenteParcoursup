@@ -27,7 +27,6 @@ import Stickman from './lib/Stickman.svelte'
     // $: orange = 0; // inconnu
     orange1 = position_liste_appel - rougevertjaune - bleu1;
     // $: orange2 = 0; // inconnu
-    console.log(rougevertjaune, vertjaune, rouge, bleu, bleu1, rose, bleu2, orange1);
   }
 </script>
 
@@ -61,7 +60,7 @@ Position dans la liste d'appel du dernier candidat qui a reçu une proposition d
   /> acceptés et d'autres l'ont <Stickman color="red" size={32} /> refusées.
   <br />
 
-
+{#if rouge >= 0 && vertjaune >= 0 && bleu1 >= 0 && orange1 >= 0 && rose >= 0 && bleu2 >= 0}
   {#each Array(rouge) as _}
   <Stickman color="red" />
   {/each}{#each Array(vertjaune) as _}
@@ -75,4 +74,5 @@ Position dans la liste d'appel du dernier candidat qui a reçu une proposition d
   {/each}{#each Array(bleu2) as _}
   <Stickman color="blue" />
   {/each}
+{/if}
 </main>

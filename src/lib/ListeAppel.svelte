@@ -130,9 +130,10 @@
       display: flex;
       align-items: center;
       flex: 1;
-      justify-content: space-around;
     }
     #grille > div > div:last-of-type {
       flex: none;
+      display: flex;
+      justify-content: space-around;
     }
   </style>

@@ -13,3 +13,9 @@ body {
 #app {
   width: 90%;
 }
+
+.shepherd-element[data-popper-placement="bottom"] {
+  /* Fix arrow position */
+  margin-top: 15px;
+  max-width: 800px;
+}

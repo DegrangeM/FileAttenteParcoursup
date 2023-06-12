@@ -3,71 +3,49 @@
     import MultiStickman from "./MultiStickman.svelte";
 
     import {
-        places,
-        position_liste_attente,
-        candidats_liste_attente,
-        position_liste_appel,
-        position_liste_appel_dernier_candidat,
-        position_liste_appel_dernier_candidat_annee_precedente,
+        vertjaune,
+        rouge,
+        bleu1,
+        rose,
+        bleu2,
+        orange1
     } from "../stores.js";
 
-    let rougevertjaune = 0,
-        vertjaune = 0,
-        rouge = 0,
-        bleu = 0,
-        bleu1 = 0,
-        rose = 0,
-        bleu2 = 0,
-        orange1 = 0;
     let zone1, zone2, zone3;
 
     $: {
-        // On déclare tout dans une même variable pour éviter que Svelte change l'ordre
-        rougevertjaune = $position_liste_appel_dernier_candidat;
-        vertjaune = $places;
-        rouge = rougevertjaune - vertjaune;
-        // $: vert = 0; // inconnu
-        // $: jaune = 0; // inconnu
-        bleu = $candidats_liste_attente;
-        rose = 1;
-        bleu1 = $position_liste_attente - rose; // devant vous
-        bleu2 = bleu - bleu1 - rose; // derrière vous
-        // $: orange = 0; // inconnu
-        orange1 = $position_liste_appel - rougevertjaune - bleu1 - rose;
-        // $: orange2 = 0; // inconnu
-        if(rouge>=0 && vertjaune>=0 && bleu1>=0 && orange1>=0 && rose>=0 && bleu2>=0) {
+        if($rouge>=0 && $vertjaune>=0 && $bleu1>=0 && $orange1>=0 && $rose>=0 && $bleu2>=0) {
             zone1 = [
                 ...new Array(
-                    rouge <= 8 ? rouge : 8 + Math.round(Math.log2(rouge - 8 + 1))
+                    $rouge <= 8 ? $rouge : 8 + Math.round(Math.log2($rouge - 8 + 1))
                 ).fill("red"),
                 ...new Array(
-                    vertjaune <= 8
-                        ? vertjaune
-                        : 8 + Math.round(Math.log2(vertjaune - 8 + 1))
+                    $vertjaune <= 8
+                        ? $vertjaune
+                        : 8 + Math.round(Math.log2($vertjaune - 8 + 1))
                 ).fill("vertjaune"),
             ];
             zone1.sort(() => Math.random() - 0.5);
-            if (rouge > 8 || vertjaune > 8) {
+            if ($rouge > 8 || $vertjaune > 8) {
                 zone1.splice(Math.round(zone1.length / 2), 0, "[...]");
             }
-            console.log(zone1);
             zone2 = [
                 ...new Array(
-                    bleu1 <= 8 ? bleu1 : 8 + Math.round(Math.log2(bleu1 - 8 + 1))
+                    $bleu1 <= 8 ? $bleu1 : 8 + Math.round(Math.log2($bleu1 - 8 + 1))
                 ).fill("blue"),
                 ...new Array(
-                    orange1 <= 8
-                        ? orange1
-                        : 8 + Math.round(Math.log2(orange1 - 8 + 1))
+                    $orange1 <= 8
+                        ? $orange1
+                        : 8 + Math.round(Math.log2($orange1 - 8 + 1))
                 ).fill("orange"),
             ];
             zone2.sort(() => Math.random() - 0.5);
-            if (bleu1 > 8 || orange1 > 8) {
+            if ($bleu1 > 8 || $orange1 > 8) {
                 zone2.splice(Math.round(zone2.length / 2), 0, "[...]");
             }
             zone3 = [
                 ...new Array(
-                    bleu2 <= 8 ? bleu2 : 8 + Math.round(Math.log2(bleu2 - 8 + 1))
+                    $bleu2 <= 8 ? $bleu2 : 8 + Math.round(Math.log2($bleu2 - 8 + 1))
                 ).fill("blue"),
                 ...new Array(3).fill("orange"),
             ];
@@ -84,7 +62,7 @@
 <div id="grille">
     <div class="zone1">
         <div class="decompte">
-            <div class="nombre">{rouge} ×</div>
+            <div class="nombre">{$rouge} ×</div>
             <div class="stickman"><Stickman color="red" size={32} /></div>
             <div class="description">
                 Personne ayant reçu une proposition d'admission mais l'ayant
@@ -93,7 +71,7 @@
         </div>
         <div class="decompte">
             <div class="nombre">
-                {vertjaune} ×
+                {$vertjaune} ×
             </div>
             <div class="stickman">
                 <MultiStickman colors={["green", "yellow"]} size={32} />
@@ -115,7 +93,7 @@
     </div>
     <div class="zone2">
         <div class="decompte">
-            <div class="nombre">{bleu1} ×</div>
+            <div class="nombre">{$bleu1} ×</div>
             <div class="stickman">
                 <Stickman color="blue" size={32} />
             </div>
@@ -124,7 +102,7 @@
             </div>
         </div>
         <div class="decompte">
-            <div class="nombre">{orange1} ×</div>
+            <div class="nombre">{$orange1} ×</div>
             <div class="stickman"><Stickman color="orange" size={32} /></div>
             <div class="description">
                 Personne qui a abandonné sa place en file d'attente et qui
@@ -139,7 +117,7 @@
     </div>
     <div style="flex: none;">
         <div class="decompte">
-            <div class="nombre">{rose} ×</div>
+            <div class="nombre">{$rose} ×</div>
             <div class="stickman"><Stickman color="pink" size={32} /></div>
             <div class="description">Vous</div>
         </div>
@@ -149,7 +127,7 @@
     </div>
     <div class="zone3">
         <div class="decompte">
-            <div class="nombre">{bleu2} ×</div>
+            <div class="nombre">{$bleu2} ×</div>
             <div class="stickman"><Stickman color="blue" size={32} /></div>
             <div class="description">
                 personne en liste d'attente derrière vous

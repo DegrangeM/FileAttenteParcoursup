@@ -1,3 +1,9 @@
+<a href="https://degrangem.github.io/FileAttenteParcoursup/dist/index.html">
+  <img src="https://badgen.net/badge/FileAttenteParcoursup/Version%20en%20ligne/?icon=github" alt="Version en ligne"/>
+</a>
+<a href="https://degrangem.forge.aeif.fr/FileAttenteParcoursup/dist/index.html">
+  <img src="https://badgen.net/badge/FileAttenteParcoursup/Version%20en%20ligne%20sur%20la%20forge/?icon=gitlab" alt="Version en ligne sur la forge" /></a>
+
 # FileAttenteParcoursup
 
 https://degrangem.github.io/FileAttenteParcoursup/dist/

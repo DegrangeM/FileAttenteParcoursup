@@ -4,4 +4,4 @@ https://degrangem.github.io/FileAttenteParcoursup/dist/
 
 Ce site a pour objectif d'aider les élèves à comprendre les différentes données de liste d'attentes et d'appel fournies par Parcoursup.
 
-![image](https://github.com/DegrangeM/FileAttenteParcoursup/assets/53106394/0191bda5-a5fd-4740-b262-f972b9ce70ee)
+![image](https://github.com/DegrangeM/FileAttenteParcoursup/assets/53106394/46a2a7ee-e84c-47a9-8db3-6b25b04adf2c)

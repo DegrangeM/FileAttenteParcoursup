@@ -5,14 +5,14 @@
 </script>
 
 <main>
+
   <Inputs />
 
   <!--<br />
   
   <Legende />-->
-  
-  <br />
-  
-  <ListeAppel />
 
+  <br />
+
+  <ListeAppel />
 </main>

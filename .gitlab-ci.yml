@@ -9,14 +9,13 @@ pages:
   stage: deploy
   environment: production
   script:
-    - mkdir .public2
-    - cp -r ./* .public2
-    - rm -rf public2
-    - mv .public2 public2
+    - mkdir .public
+    - cp -r ./* .public
+    - rm -rf public
+    - mv .public public
   artifacts:
     paths:
-      - public2
-  publish : public2
+      - public
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   

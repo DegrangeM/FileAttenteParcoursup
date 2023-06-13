@@ -17,6 +17,8 @@
     } from "../stores.js";
     import Shepherd from "shepherd.js";
     import "shepherd.js/dist/css/shepherd.css";
+    import Stickman from "./Stickman.svelte";
+    import MultiStickman from "./MultiStickman.svelte";
 
     $: {
         // On déclare tout dans une même variable pour éviter que Svelte change l'ordre
@@ -149,7 +151,8 @@ Votre position dans la liste d'attente :
 Nombre total de candidats dans la liste d'attente :
 <input type="number" bind:value={$candidats_liste_attente} min="0" />
 <!-- svelte-ignore a11y-invalid-attribute -->
-<a href="#" style:text-decoration="none" on:click={startAttenteTour}>(?)</a><br />
+<a href="#" style:text-decoration="none" on:click={startAttenteTour}>(?)</a><br
+/>
 
 <div style:display="none">
     <div bind:this={attente_tour_1}>
@@ -165,13 +168,21 @@ Nombre total de candidats dans la liste d'attente :
         Parmi ces personnes, il y en a :<br />
         <ul>
             <li style:font-weight="bold">
-                {$rouge} qui ont reçu une proposition d'admission mais l'ont refusé
+                {$rouge}
+                <Stickman color="red" size={16} /> qui ont reçu une proposition d'admission
+                mais l'ont refusé
             </li>
             <li style:font-weight="bold">
-                {$vertjaune} qui ont reçu une proposition d'admission et l'ont soit
-                accepté, soit pas encore accepté ou refusé
+                {$vertjaune}
+                <MultiStickman colors={["green", "yellow"]} size={16} /> qui ont
+                reçu une proposition d'admission et l'ont soit accepté, soit pas
+                encore accepté ou refusé
             </li>
-            <li>{$orange1} qui ont abandonnés leur place en file d'attente</li>
+            <li>
+                {$orange1}
+                <Stickman color="orange" size={16} /> qui ont abandonnés leur place
+                en file d'attente
+            </li>
         </ul>
     </div>
     <div bind:this={attente_tour_3}>
@@ -179,20 +190,28 @@ Nombre total de candidats dans la liste d'attente :
         Parmi ces personnes, il y en a :<br />
         <ul>
             <li>
-                {$rouge} qui ont reçu une proposition d'admission mais l'ont refusé
+                {$rouge}
+                <Stickman color="red" size={16} /> qui ont reçu une proposition d'admission
+                mais l'ont refusé
             </li>
             <li>
-                {$vertjaune} qui ont reçu une proposition d'admission et l'ont soit
-                accepté, soit pas encore accepté ou refusé
+                {$vertjaune}
+                <MultiStickman colors={["green", "yellow"]} size={16} /> qui ont
+                reçu une proposition d'admission et l'ont soit accepté, soit pas
+                encore accepté ou refusé
             </li>
             <li style:font-weight="bold">
-                {$orange1} qui ont abandonnés leur place en file d'attente
+                {$orange1}
+                <Stickman color="orange" size={16} /> qui ont abandonnés leur place
+                en file d'attente
             </li>
         </ul>
     </div>
     <div bind:this={attente_tour_4}>
-        {$position_liste_appel - 1} - {$rouge} - {$vertjaune} - {$orange1} = {$bleu1}<br
-        />
+        {$position_liste_appel - 1} - {$rouge}
+        <Stickman color="red" size={16} /> - {$vertjaune}
+        <MultiStickman colors={["green", "yellow"]} size={16} /> - {$orange1}
+        <Stickman color="orange" size={16} /> = {$bleu1}<br />
         Il y a donc {$bleu1} personnes devant vous et vous êtes donc {$position_liste_attente}ème
         sur la liste d'attente.
     </div>

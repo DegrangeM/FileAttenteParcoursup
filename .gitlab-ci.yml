@@ -16,6 +16,9 @@ pages:
   artifacts:
     paths:
       - public2
+  publish :
+    paths :
+      - public2
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   

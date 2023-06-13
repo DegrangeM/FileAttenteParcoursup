@@ -157,6 +157,8 @@ Nombre total de candidats dans la liste d'attente :
 <div style:display="none">
     <div bind:this={attente_tour_1}>
         La formation a classé chaque candidature selon ses critères.<br />
+        Vous étiez classé {$position_liste_appel}ème dans ce classement. Il y
+        avait donc {$position_liste_appel - 1} personnes devant vous.<br />
         Les personnes qui n'ont pas encore reçu de proposition d'admission sont placées
         en liste d'attente.<br />
         Votre position dans cette liste d'attente va diminuer au fur et à mesure
@@ -212,8 +214,8 @@ Nombre total de candidats dans la liste d'attente :
         <Stickman color="red" size={16} /> - {$vertjaune}
         <MultiStickman colors={["green", "yellow"]} size={16} /> - {$orange1}
         <Stickman color="orange" size={16} /> = {$bleu1}<br />
-        Il y a donc {$bleu1} personnes devant vous et vous êtes donc {$position_liste_attente}ème
-        sur la liste d'attente.
+        Il y a donc {$bleu1} personnes devant vous dans la liste d'attente et vous
+        êtes donc {$position_liste_attente}ème sur la liste d'attente.
     </div>
 </div>
 
@@ -233,17 +235,25 @@ Votre position dans la liste d'appel de la formation :
         Il y a devant vous :
         <ul>
             <li style:font-weight="bold">
-                {$rouge} Personnes ayant reçu une proposition d'admission mais l'ayant
-                refusé
+                {$rouge}
+                <Stickman color="red" size={16} /> Personnes ayant reçu une proposition
+                d'admission mais l'ayant refusé
             </li>
             <li style:font-weight="bold">
-                {$vertjaune} Personnes ayant reçu une proposition d'admission et
-                l'ayant soit accepté, soit pas encore accepté ou refusé
+                {$vertjaune}
+                <MultiStickman colors={["green", "yellow"]} size={16} /> Personnes
+                ayant reçu une proposition d'admission et l'ayant soit accepté, soit
+                pas encore accepté ou refusé
             </li>
-            <li>{$bleu1} Personnes en liste d'attente devant vous</li>
             <li>
-                {$orange1} Personnes qui ont abandonnés leur place en file d'attente
-                et qui étaient devant vous
+                {$bleu1}
+                <Stickman color="blue" size={16} /> Personnes en liste d'attente
+                devant vous
+            </li>
+            <li>
+                {$orange1}
+                <Stickman color="orange" size={16} /> Personnes qui ont abandonnés
+                leur place en file d'attente et qui étaient devant vous
             </li>
         </ul>
     </div>
@@ -251,25 +261,35 @@ Votre position dans la liste d'appel de la formation :
         Il y a devant vous :
         <ul>
             <li>
-                {$rouge} Personnes ayant reçu une proposition d'admission mais l'ayant
-                refusé
+                {$rouge}
+                <Stickman color="red" size={16} /> Personnes ayant reçu une proposition
+                d'admission mais l'ayant refusé
             </li>
             <li>
-                {$vertjaune} Personnes ayant reçu une proposition d'admission et
-                l'ayant soit accepté, soit pas encore accepté ou refusé
+                {$vertjaune}
+                <MultiStickman colors={["green", "yellow"]} size={16} /> Personnes
+                ayant reçu une proposition d'admission et l'ayant soit accepté, soit
+                pas encore accepté ou refusé
             </li>
             <li style:font-weight="bold">
-                {$bleu1} Personnes en liste d'attente devant vous
+                {$bleu1}
+                <Stickman color="blue" size={16} /> Personnes en liste d'attente
+                devant vous
             </li>
             <li style:font-weight="bold">
-                {$orange1} Personnes qui ont abandonnés leur place en file d'attente
-                et qui étaient devant vous
+                {$orange1}
+                <Stickman color="orange" size={16} /> Personnes qui ont abandonnés
+                leur place en file d'attente et qui étaient devant vous
             </li>
         </ul>
     </div>
     <div bind:this={appel_tour_4}>
-        {$rouge} + {$vertjaune} + {$bleu1} + {$orange1} = {$position_liste_appel -
-            1}<br />
+        {$rouge}
+        <Stickman color="red" size={16} /> + {$vertjaune}
+        <MultiStickman colors={["green", "yellow"]} size={16} /> + {$bleu1}
+        <Stickman color="blue" size={16} /> + {$orange1}
+        <Stickman color="orange" size={16} /> = {$position_liste_appel - 1}<br
+        />
         Il y a donc {$position_liste_appel - 1} personnes devant vous et vous êtes
         donc {$position_liste_appel}ème sur la liste d'appel.
     </div>

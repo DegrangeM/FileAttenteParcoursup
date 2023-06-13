@@ -34,6 +34,8 @@
         // $: orange2 = 0; // inconnu
     }
 
+    let appel_tour_1, appel_tour_2, appel_tour_3, appel_tour_4;
+
     function startAppelTour() {
         const tour = new Shepherd.Tour({
             useModalOverlay: true,
@@ -55,19 +57,11 @@
             action: tour.complete,
         };
         tour.addStep({
-            text: `La formation a classé chaque candidature selon ses critères.<br />
-                Votre position dans ce classement correspond à votre rang dans la liste d'appel.<br />
-                Cette position est fixe et ne changera pas.`,
+            text: appel_tour_1,
             buttons: [NEXT],
         });
         tour.addStep({
-            text: `Il y a devant vous :
-            <ul>
-                <li><strong>${$rouge} Personnes ayant reçu une proposition d'admission mais l'ayant refusé</strong></li>
-                <li><strong>${$vertjaune} Personnes ayant reçu une proposition d'admission et l'ayant soit accepté, soit pas encore accepté ou refusé</strong></li>
-                <li>${$bleu1} Personnes en liste d'attente devant vous</li>
-                <li>${$orange1} Personnes qui ont abandonnés leur place en file d'attente et qui étaient devant vous</li>
-            </ul>`,
+            text: appel_tour_2,
             attachTo: {
                 element: ".zone1",
                 on: "bottom",
@@ -75,13 +69,7 @@
             buttons: [PREVIOUS, NEXT],
         });
         tour.addStep({
-            text: `Il y a devant vous :
-                <ul>
-                    <li>${$rouge} Personnes ayant reçu une proposition d'admission mais l'ayant refusé</li>
-                    <li>${$vertjaune} Personnes ayant reçu une proposition d'admission et l'ayant soit accepté, soit pas encore accepté ou refusé</li> 
-                    <li><strong>${$bleu1} Personnes en liste d'attente devant vous</strong></li>
-                    <li><strong>${$orange1} Personnes qui ont abandonnés leur place en file d'attente et qui étaient devant vous</strong></li>
-                </ul>`,
+            text: appel_tour_3,
             attachTo: {
                 element: ".zone2",
                 on: "bottom",
@@ -89,12 +77,7 @@
             buttons: [PREVIOUS, NEXT],
         });
         tour.addStep({
-            text: `${$rouge} + ${$vertjaune} + ${$bleu1} + ${$orange1} = ${
-                $position_liste_appel - 1
-            }<br />
-            Il y a donc  ${
-                $position_liste_appel - 1
-            } personnes devant vous et vous êtes donc ${$position_liste_appel}ème sur la liste d'appel.`,
+            text: appel_tour_4,
             buttons: [PREVIOUS, END],
         });
         tour.start();
@@ -191,6 +174,67 @@ Position dans la liste d'appel du dernier candidat qui a reçu une proposition d
     bind:value={$position_liste_appel_dernier_candidat}
     min="0"
 /><br />
+
+<div style:display="none">
+    <div bind:this={appel_tour_1}>
+        La formation a classé chaque candidature selon ses critères.<br />
+        Votre position dans ce classement correspond à votre rang dans la liste d'appel.<br
+        />
+        Cette position est fixe et ne changera pas.
+    </div>
+    <div bind:this={appel_tour_2}>
+        Il y a devant vous :
+        <ul>
+            <li>
+                <strong>
+                    {$rouge} Personnes ayant reçu une proposition d'admission mais
+                    l'ayant refusé
+                </strong>
+            </li>
+            <li>
+                <strong>
+                    {$vertjaune} Personnes ayant reçu une proposition d'admission
+                    et l'ayant soit accepté, soit pas encore accepté ou refusé
+                </strong>
+            </li>
+            <li>{$bleu1} Personnes en liste d'attente devant vous</li>
+            <li>
+                {$orange1} Personnes qui ont abandonnés leur place en file d'attente
+                et qui étaient devant vous
+            </li>
+        </ul>
+    </div>
+    <div bind:this={appel_tour_3}>
+        Il y a devant vous :
+        <ul>
+            <li>
+                {$rouge} Personnes ayant reçu une proposition d'admission mais l'ayant
+                refusé
+            </li>
+            <li>
+                {$vertjaune} Personnes ayant reçu une proposition d'admission et
+                l'ayant soit accepté, soit pas encore accepté ou refusé
+            </li>
+            <li>
+                <strong>
+                    {$bleu1} Personnes en liste d'attente devant vous
+                </strong>
+            </li>
+            <li>
+                <strong>
+                    {$orange1} Personnes qui ont abandonnés leur place en file d'attente
+                    et qui étaient devant vous
+                </strong>
+            </li>
+        </ul>
+    </div>
+    <div bind:this={appel_tour_4}>
+        {$rouge} + {$vertjaune} + {$bleu1} + {$orange1} = {$position_liste_appel -
+            1}<br />
+        Il y a donc {$position_liste_appel - 1} personnes devant vous et vous êtes
+        donc {$position_liste_appel}ème sur la liste d'appel.
+    </div>
+</div>
 
 Position dans la liste d'appel du dernier candidat qui a reçu une proposition
 d’admission en 2022 :
